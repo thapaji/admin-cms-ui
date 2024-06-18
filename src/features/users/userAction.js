@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { fetchUserInfo, loginUser, postNewUser } from "./userAxios";
+import { fetchUserInfo, loginUser, postNewUser, verifyUser } from "./userAxios";
 import { setUser } from "./userSlice";
 import { renewAccessJWT } from "../../helpers/axiosHelper";
 
@@ -51,4 +51,8 @@ export const autoLogin = () => async (dispatch) => {
         const token = await renewAccessJWT();
         token && dispatch(getUserObj())
     }
+}
+
+export const verifyUserVerificationAction = (obj) => async () => {
+    const response = await apiProcesserWITHTOAST(obj, verifyUser);
 }

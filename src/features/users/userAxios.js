@@ -16,6 +16,11 @@ export const postNewUser = async (userObj) => {
 };
 
 export const fetchUserInfo = async () => {
-    const axiosObj = { method: 'GET', url: userEp, isPrivate: true}
+    const axiosObj = { method: 'GET', url: userEp, isPrivate: true }
+    return await apiProcessor(axiosObj);
+};
+
+export const verifyUser = async (data) => {
+    const axiosObj = { method: 'POST', url: userEp + '/user-verification', data }
     return await apiProcessor(axiosObj);
 };
