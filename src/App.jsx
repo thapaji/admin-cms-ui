@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/" element={<Login />} />
         /************** Public Routes ****************/
         <Route path="/admin/new" element={<Register />} />
+        <Route path="*" element={<h1>404 Page Not Found</h1>} />
       </Routes>
       <ToastContainer />
     </>
