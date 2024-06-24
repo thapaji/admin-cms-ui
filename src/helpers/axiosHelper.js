@@ -19,6 +19,7 @@ export const apiProcessor = async ({ method, url, data, isPrivate, isRefreshJWT 
   }
 }
 
+
 const getAccessJWT = () => {
   return sessionStorage.getItem('accessJWT');
 }
