@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useForm from "../../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 import { CustomInput } from "../../components/common/custom-input/CustomInput";
 import { toast } from "react-toastify";
 import { login } from "../../features/users/userAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userInfo);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    user?._id && navigate("/admin/dashboard");
+  }, [user]);
+
   const inputs = [
     { label: "Email", name: "email", type: "email", placeholder: "Enter email" },
     { label: "Password", name: "password", type: "password", placeholder: "Enter password" },
