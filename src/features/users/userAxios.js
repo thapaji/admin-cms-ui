@@ -35,3 +35,10 @@ export const logoutUser = async () => {
     const axiosObj = { method: 'DELETE', url: userEp + '/logout', isPrivate: true }
     return await apiProcessor(axiosObj);
 };
+
+export const requestOTP = async (email) => {
+    const axiosObj = {
+        method: 'POST', url: userEp + '/otp', data: { email: email },
+    }
+    return await apiProcessor(axiosObj);
+};

@@ -46,6 +46,9 @@ const Login = () => {
             <Button type="submit">Login</Button>
           </div>
         </Form>
+        <div className="text-end mt-2">
+          <a href="/forget-password">Forget Password?</a>
+        </div>
       </div>
     </div>
   );

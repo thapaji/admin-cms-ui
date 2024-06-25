@@ -16,6 +16,7 @@ import Products from "./pages/product/Products";
 import { Auth } from "./components/auth/Auth";
 import { useDispatch } from "react-redux";
 import { autoLogin } from "./features/users/userAction";
+import ForgetPassword from "./pages/user/ForgetPassword";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
         /************** Public Routes ****************/
         <Route path="/" element={<Login />} />
         <Route path="/verify-user" element={<UserVerification />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
         /************** Private Routes ****************/
         <Route
           path="/"
