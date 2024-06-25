@@ -24,3 +24,14 @@ export const verifyUser = async (data) => {
     const axiosObj = { method: 'POST', url: userEp + '/user-verification', data }
     return await apiProcessor(axiosObj);
 };
+
+export const renewAccessJWT = async () => {
+    const { accessJWT } = await apiProcessor({ method: 'GET', url: userEp + '/new-accessjwt', isPrivate: true, isRefreshJWT: true });
+    sessionStorage.setItem('accessJWT', accessJWT)
+    return accessJWT;
+}
+
+export const logoutUser = async () => {
+    const axiosObj = { method: 'DELETE', url: userEp + '/logout', isPrivate: true }
+    return await apiProcessor(axiosObj);
+};

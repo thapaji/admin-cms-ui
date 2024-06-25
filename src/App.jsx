@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/user/Login";
@@ -14,8 +14,15 @@ import Categories from "./pages/category/Categories";
 import Users from "./pages/user/Users";
 import Products from "./pages/product/Products";
 import { Auth } from "./components/auth/Auth";
+import { useDispatch } from "react-redux";
+import { autoLogin } from "./features/users/userAction";
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(autoLogin());
+  }, []);
+
   return (
     <>
       <Routes>

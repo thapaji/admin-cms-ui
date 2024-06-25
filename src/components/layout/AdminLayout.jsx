@@ -10,7 +10,7 @@ export const AdminLayout = () => {
     <>
       <Header />
       <Row>
-        <Col className="bg-primary" md={3}>
+        <Col className="theme-default" md={2}>
           <Sidebar />
         </Col>
         <Col className="main">

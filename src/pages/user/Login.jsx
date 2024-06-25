@@ -5,15 +5,17 @@ import { CustomInput } from "../../components/common/custom-input/CustomInput";
 import { toast } from "react-toastify";
 import { login } from "../../features/users/userAction";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.userInfo);
   const navigate = useNavigate();
+  const location = useLocation();
+  const redirectTo = location?.state?.from?.pathname || "/admin/dashboard";
 
   useEffect(() => {
-    user?._id && navigate("/admin/dashboard");
+    user?._id && navigate(redirectTo);
   }, [user]);
 
   const inputs = [
@@ -33,9 +35,9 @@ const Login = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="shadow-lg p-4 rounded m-auto" style={{ width: "450px" }}>
-        <Form className="" onSubmit={handleSubmit}>
+    <div className="login d-flex justify-content-center align-items-center vh-100">
+      <div className="border shadow-lg  bg-light p-5 rounded" style={{ width: "450px" }}>
+        <Form onSubmit={handleSubmit}>
           <h3>Login</h3>
           {inputs.map((item, i) => (
             <CustomInput key={i} {...item} onChange={handleChange} />

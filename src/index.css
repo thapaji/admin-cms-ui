@@ -1,3 +1,31 @@
+.login {
+  background: url(https://images.unsplash.com/photo-1516383274235-5f42d6c6426d?q=80&w=2948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+    center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.theme-default {
+  background-color: #c0c0c3;
+}
+
 .main {
   min-height: 86vh;
+  padding: 1rem;
+  background-color: #e0e0e3;
+}
+
+.dropdown {
+  background-color: #f4f4f8;
+  height: 2.6rem;
+  width: 2.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto !important;
 }

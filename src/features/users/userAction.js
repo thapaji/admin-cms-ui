@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
-import { fetchUserInfo, loginUser, postNewUser, verifyUser } from "./userAxios";
+import { fetchUserInfo, loginUser, logoutUser, postNewUser, renewAccessJWT, verifyUser } from "./userAxios";
 import { setUser } from "./userSlice";
-import { renewAccessJWT } from "../../helpers/axiosHelper";
 
 export const apiProcesserWITHTOAST = async (obj, func) => {
     const pending = func(obj);
@@ -19,7 +18,7 @@ export const createNewAdminAction = async (userData) => {
 
 export const getUserObj = () => async (dispatch) => {
     const { status, user } = await fetchUserInfo();
-   
+
     /***** update store ****/
     dispatch(setUser(user))
 }
@@ -48,8 +47,18 @@ export const autoLogin = () => async (dispatch) => {
     /********** When accessJWT do not exist but refreshJWt Exists ************/
     if (refreshJWT) {
         const token = await renewAccessJWT();
-        token && dispatch(getUserObj())
+        if (token) {
+            // sessionStorage.setItem("accessJWT", token);
+            dispatch(getUserObj());
+        }
     }
+}
+
+export const logoutUserAction = () => (dispatch) => {
+    logoutUser();
+    dispatch(setUser({}));
+    sessionStorage.removeItem("accessJWT");
+    localStorage.removeItem("refreshJWT");
 }
 
 export const verifyUserVerificationAction = (obj) => async () => {

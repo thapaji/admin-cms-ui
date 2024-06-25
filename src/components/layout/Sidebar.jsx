@@ -1,10 +1,9 @@
 import React from "react";
 import { Stack } from "react-bootstrap";
 import { CiShoppingTag } from "react-icons/ci";
-import { FaUserSecret, FaUsers } from "react-icons/fa";
+import { FaHome, FaUserSecret, FaUsers } from "react-icons/fa";
 import { LuShoppingBag } from "react-icons/lu";
 import { MdOutlineDashboardCustomize, MdOutlineRateReview } from "react-icons/md";
-import { TbCategoryFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
@@ -13,38 +12,45 @@ export const Sidebar = () => {
       <hr />
       <div className="p-2">
         <Link className="nav-link" to="admin/dashboard">
-        <MdOutlineDashboardCustomize /><label>Dashboard</label>
+        <FaHome />{" Dashboard"}
+          
         </Link>
       </div>
       <div className="p-2">
         <Link className="nav-link" to="admin/categories">
-        <TbCategoryFilled />Category
+        <MdOutlineDashboardCustomize />
+          {" Category"}
         </Link>
       </div>
       <div className="p-2">
         <Link className="nav-link" to="admin/product">
-        <CiShoppingTag />Product
+          <CiShoppingTag />
+          {" Product"}
         </Link>
       </div>
       <div className="p-2">
         <Link className="nav-link" to="admin/users">
-        <FaUsers />Users
+          <FaUsers />
+          {" Users"}
         </Link>
       </div>
       <div className="p-2">
         <Link className="nav-link" to="admin/orders">
-        <LuShoppingBag />Orders
+          <LuShoppingBag />
+          {" Orders"}
         </Link>
       </div>
       <div className="p-2">
         <Link className="nav-link" to="admin/reviews">
-        <MdOutlineRateReview />Reviews
+          <MdOutlineRateReview />
+          {" Reviews"}
         </Link>
       </div>
       <hr />
       <div className="p-2">
         <Link className="nav-link" to="/admin/admins">
-        <FaUserSecret />Admins
+          <FaUserSecret />
+          {" Admins"}
         </Link>
       </div>
     </Stack>

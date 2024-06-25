@@ -1,29 +1,29 @@
 import React from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { FaUser } from "react-icons/fa";
+import { logoutUserAction } from "../../features/users/userAction";
+import { useDispatch } from "react-redux";
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(logoutUserAction());
+  };
+
   return (
-    <Navbar expand="lg" className="bg-primary">
+    <Navbar expand="lg" className="theme-default">
       <Container>
-        <Navbar.Brand href="#home">ADMIN-CMS</Navbar.Brand>
+        <Navbar.Brand href="/admin/dashboard">ADMIN-CMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown
-              title={
-                <>
-                  <FaUser /> User
-                </>
-              }
-              id="basic-nav-dropdown"
-            >
-              <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Change Password</NavDropdown.Item>
+            <NavDropdown title={<FaUser />} id="basic-nav-dropdown">
+              <NavDropdown.Item to="/admin/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item to="/admin/new">Change Password</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="#" onClick={logout}>
+                Logout
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
