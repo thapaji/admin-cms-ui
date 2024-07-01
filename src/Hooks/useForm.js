@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 
 const handleChange = ({ e, form, setForm }) => {
     let { checked, name, value } = e.target;
-    if (name === 'status') {
-        value = checked ? 'active' : 'inactive';
-    }
+    // if (name === 'status') {
+    //     value = checked ? 'active' : 'inactive';
+    // }
     setForm({ ...form, [name]: value });
 };
 

@@ -14,3 +14,13 @@ export const getAllCategories = async () => {
     const axiosObj = { method: 'GET', url: catEP, isPrivate: true };
     return await apiProcessor(axiosObj);
 };
+
+export const deleteCategory = async (catId) => {
+    const axiosObj = { method: 'DELETE', url: `${catEP}/${catId}`, isPrivate: true };
+    return await apiProcessor(axiosObj);
+};
+
+export const updateCategory = async (catObj) => {
+    const axiosObj = { method: 'PUT', url: `${catEP}/${catObj._id}`, data: catObj, isPrivate: true };
+    return await apiProcessor(axiosObj);
+};

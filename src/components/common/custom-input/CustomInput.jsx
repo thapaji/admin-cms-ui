@@ -7,8 +7,8 @@ export const CustomInput = ({ label, ...rest }) => {
       <Form.Label>{label}</Form.Label>
       {rest.type === "select" ? (
         <Form.Control as="select" {...rest}>
-          {options.map((item, i) => (
-            <option key={i} value={item.value}>
+          {rest.options.map((item, i) => (
+            <option key={i} value={item.value} selected={item.selected}>
               {item.label}
             </option>
           ))}
