@@ -18,8 +18,8 @@ export const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <NavDropdown title={<FaUser />} id="basic-nav-dropdown">
-              <NavDropdown.Item to="/admin/profile">Profile</NavDropdown.Item>
-              <NavDropdown.Item to="/admin/new">Change Password</NavDropdown.Item>
+              <NavDropdown.Item href="/admin/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/admin/change-password">Change Password</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#" onClick={logout}>
                 Logout

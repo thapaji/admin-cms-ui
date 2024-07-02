@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Reviews = () => {
   return (
-    <div>Reviews</div>
-  )
-}
+    <>
+      <h4>Reviews</h4>
+      <hr />
+    </>
+  );
+};
 
-export default Reviews
+export default Reviews;

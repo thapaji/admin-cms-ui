@@ -1,38 +1,37 @@
 import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { ProductTable } from "../../components/tables/ProductTable";
+import { NewProduct } from "../../components/forms/NewProduct";
 
-const Products = () => {
+const AddNewProduct = () => {
   const navigate = useNavigate();
-
-  const handleAddProduct = () => {
-    navigate("/admin/product/new");
+  
+  const handleBackButtonClick = () => {
+    navigate("/admin/product");
   };
 
   return (
     <>
       <Row>
         <Col>
-          <h4>Products</h4>
+          <h4>New Product</h4>
         </Col>
         <Col>
           {" "}
           <div className="text-end">
-            <Button className="btn-primary me-4" onClick={handleAddProduct}>
-              Add
+            <Button className="btn-primary me-4" onClick={handleBackButtonClick}>
+              Back
             </Button>
           </div>
         </Col>
       </Row>
 
       <hr />
-      <div>6 products found</div>
       <div>
-        <ProductTable />
+        <NewProduct />
       </div>
     </>
   );
 };
 
-export default Products;
+export default AddNewProduct;

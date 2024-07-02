@@ -32,19 +32,23 @@ const Register = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="shadow-lg p-3 rounded m-auto" style={{ width: "450px" }}>
-        <Form className="" onSubmit={handleSubmit}>
-          <h3>Admin Registration</h3>
-          {inputs.map((item, i) => (
-            <CustomInput key={i} {...item} onChange={handleChange} />
-          ))}
-          <div className="d-grid">
-            <Button type="submit">Register New Admin</Button>
-          </div>
-        </Form>
+    <>
+      <h4>Register New Admin</h4>
+      <hr />
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="shadow-lg p-3 rounded m-auto" style={{ width: "450px" }}>
+          <Form className="" onSubmit={handleSubmit}>
+            <h3>Admin Registration</h3>
+            {inputs.map((item, i) => (
+              <CustomInput key={i} {...item} onChange={handleChange} />
+            ))}
+            <div className="d-grid">
+              <Button type="submit">Register New Admin</Button>
+            </div>
+          </Form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

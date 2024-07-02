@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import React from "react";
 import { CategoryTable } from "../../components/tables/CategoryTable";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,18 +14,27 @@ const Categories = () => {
 
   return (
     <>
-      <div>Categories</div>
+      <Row>
+        <Col>
+          <h4>Categories</h4>
+        </Col>
+        <Col>
+          {" "}
+          <div className="text-end">
+            <Button
+              className="btn-primary"
+              onClick={() => {
+                setShowModal(true);
+              }}
+            >
+              Add
+            </Button>
+          </div>
+        </Col>
+      </Row>
+
       <hr />
-      <div className="text-end">
-        <Button
-          className="btn-primary"
-          onClick={() => {
-            setShowModal(true);
-          }}
-        >
-          Add
-        </Button>
-      </div>
+
       <div>{categories.length} categories found</div>
       <div>
         <CategoryTable />

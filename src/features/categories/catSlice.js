@@ -4,7 +4,7 @@ const initialState = {
     categories: []
 }
 
-const userSlice = createSlice({
+const catSlice = createSlice({
     name: 'categories',
     initialState,
     reducers: {
@@ -14,7 +14,7 @@ const userSlice = createSlice({
     }
 })
 
-const { reducer, actions } = userSlice;
+const { reducer, actions } = catSlice;
 
 export const { setCategories } = actions;
 
