@@ -17,8 +17,7 @@ export const EditProductForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const resp =  getSingleProductAction();
-    // setForm();
+    setFormData();
   }, []);
 
   useEffect(() => {
@@ -27,7 +26,11 @@ export const EditProductForm = () => {
     }
   }, [dispatch, categories.length]);
 
-  console.log(form);
+  const setFormData = async () => {
+    const product  = await getSingleProductAction(_id);
+    setForm(product);
+  };
+
 
   useEffect(() => {
     setOptions(categories.map((category) => ({ value: category.title, label: category.title })));

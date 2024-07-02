@@ -27,11 +27,15 @@ export const deleteProductAction = (productId) => async (dispatch) => {
 }
 
 export const updateProductAction = (productData) => async (dispatch) => {
-    const resp = await updateProduct(productData);
-    dispatch(getProductAction())
-    return resp.status;
+    const { status, message } = await updateProduct(productData);
+    toast[status](message);
+    if (status === 'success') {
+        dispatch(getProductAction())
+    }
+    return status;
 }
 
-export const getSingleProductAction = (productId) => async (dispatch) => {
-    return await getSingleProduct(productId);
+export const getSingleProductAction = async (productId) => {
+    const resp = await getSingleProduct(productId);
+    return resp.status = 'success' ? resp.product : {}
 }
