@@ -69,13 +69,13 @@ export const NewProduct = () => {
     {
       label: "Product Sale Start",
       name: "saleStart",
-      type: "text",
+      type: "date",
       placeholder: "Enter Product Sale Start Date",
     },
     {
       label: "Product Sale End",
       name: "saleEnd",
-      type: "text",
+      type: "date",
       placeholder: "Enter Product Sale End Date",
     },
     {
@@ -85,14 +85,34 @@ export const NewProduct = () => {
       placeholder: "Enter Product Description",
       required: true,
     },
-    { label: "Images", name: "images", type: "text", placeholder: "Enter Images", required: true },
+    {
+      label: "Images",
+      name: "images",
+      type: "file",
+      placeholder: "Enter Images",
+      required: true,
+      accept: "image/*",
+    },
   ];
   const { form, setForm, handleChange } = useForm({});
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const status = await dispatch(createNewProductAction(form));
+
+    let data = new FormData();
+    for (let key in form) {
+      data.append(key, form[key]);
+    }
+    if (form.images.length > 0) {
+      data.delete("images");
+      [...form.images].forEach((image) => data.append("images", image));
+    }
+
+    console.log(form);
+
+    console.log(data);
+    const status = await dispatch(createNewProductAction(data));
     status === "success" && navigate("/admin/product");
   };
 

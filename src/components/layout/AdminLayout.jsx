@@ -10,10 +10,10 @@ export const AdminLayout = () => {
     <>
       <Header />
       <Row>
-        <Col className="theme-default" md={2}>
+        <Col className="theme-default" sm={2}>
           <Sidebar />
         </Col>
-        <Col className="main">
+        <Col className="main" sm={10}>
           <Outlet />
         </Col>
       </Row>

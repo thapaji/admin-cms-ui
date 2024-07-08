@@ -32,13 +32,9 @@ export const ProductTable = () => {
           <th>#</th>
           <th>Name</th>
           <th>SKU</th>
-          <th>Slug</th>
           <th>Price</th>
           <th>Quantity</th>
-          <th>Sales Price</th>
-          <th>Sales Starts</th>
-          <th>Sales End</th>
-          <th>Description</th>
+          <th>Sales </th>
           {/* <th>Images</th> */}
           <th>Actions</th>
         </tr>
@@ -49,13 +45,17 @@ export const ProductTable = () => {
             <td>{index + 1}</td>
             <td>{product.name}</td>
             <td>{product.sku}</td>
-            <td>{product.slug}</td>
-            <td>{product.price}</td>
+            <td>${product.price}</td>
             <td>{product.stock}</td>
-            <td>{product.salePrice}</td>
-            <td>{product.saleStart}</td>
-            <td>{product.saleEnd}</td>
-            <td>{product.description}</td>
+            <td>
+              {product.salePrice && (
+                <p>
+                  ${product.salePrice}
+                  <hr />
+                  {product.saleStart?.slice(0, 10)} to {product.saleEnd?.slice(0, 10)}
+                </p>
+              )}
+            </td>
             <td>
               <Button
                 variant="warning"
