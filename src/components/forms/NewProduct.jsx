@@ -94,7 +94,7 @@ export const NewProduct = () => {
       accept: "image/*",
     },
   ];
-  const { form, setForm, handleChange } = useForm({});
+  const { images, form, setForm, handleChange } = useForm({});
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -104,14 +104,11 @@ export const NewProduct = () => {
     for (let key in form) {
       data.append(key, form[key]);
     }
-    if (form.images.length > 0) {
-      data.delete("images");
-      [...form.images].forEach((image) => data.append("images", image));
+    console.log(images, typeof images);
+    if (images.length > 0) {
+      images.forEach((image) => data.append("images", image));
     }
 
-    console.log(form);
-
-    console.log(data);
     const status = await dispatch(createNewProductAction(data));
     status === "success" && navigate("/admin/product");
   };
